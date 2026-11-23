@@ -1,0 +1,18 @@
+# Reconstructed from the lab report screenshots (Figure 1.5.2).
+# Path: /etc/NetworkManager/system-connections/enp0s3.nmconnection
+# PARTIAL FILE: the [connection] header above interface-name is not shown.
+# ...
+interface-name=enp0s3
+timestamp=1772430646
+
+[ethernet]
+
+[ipv4]
+address1=192.168.200.3/24
+dns=192.168.200.3;
+gateway=192.168.200.1
+ignore-auto-dns=true
+method=manual
+
+[ipv6]
+addr-gen-mode=eui64

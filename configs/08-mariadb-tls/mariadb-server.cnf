@@ -1,0 +1,22 @@
+# Reconstructed from the lab report screenshots. (Figure 8.5.5, screenshot 01-mariadb-server-cnf.png)
+# /etc/my.cnf.d/mariadb-server.cnf
+# PARTIAL: only the [mysqld] section as shown on screen. The three lines marked
+# "added" were typed in by the group; the rest are distribution defaults.
+# ... (header comments and anything after [galera] not shown)
+
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+log-error=/var/log/mariadb/mariadb.log
+pid-file=/run/mariadb/mariadb.pid
+
+# added: listen on every interface (remote access; see docs for the risk)
+bind-address=0.0.0.0
+
+# added: self-signed certificate and key
+ssl-cert=/etc/mysql/certs/mariadb.crt
+ssl-key=/etc/mysql/certs/mariadb.key
+
+# * Galera-related settings
+[galera]
+# ... (rest of file not shown)

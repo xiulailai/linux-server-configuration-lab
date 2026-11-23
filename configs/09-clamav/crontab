@@ -1,0 +1,4 @@
+# root crontab, edited with "sudo crontab -e"
+# Reconstructed from the lab report screenshots (Figure 9.9.5).
+# Runs the scan script every day at 02:00.
+0 2 * * * /usr/local/bin/clamav-scan.sh

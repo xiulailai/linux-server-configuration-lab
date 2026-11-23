@@ -1,0 +1,26 @@
+# Reconstructed from the lab report screenshots (Figure 10.5.4). Path: /etc/fail2ban/jail.local
+# Complete file as shown. Runs on the Ubuntu client (tapauclient).
+[DEFAULT]
+# Ban duration: 600 seconds (10 minutes)
+bantime = 600
+
+# Time window for counting failures: 600 seconds
+findtime = 600
+
+# Number of failures before ban
+maxretry = 3
+
+# Don't ban localhost
+ignoreip = 127.0.0.1/8 ::1
+
+# Use systemd journal as log source (Ubuntu socket-activated SSH writes here)
+backend = systemd
+
+# Use iptables for ban enforcement so it shows in iptables -L
+banaction = iptables-multiport
+banaction_allports = iptables-allports
+
+[sshd]
+enabled = true
+port = ssh
+mode = aggressive
