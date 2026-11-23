@@ -1,0 +1,18 @@
+; Reconstructed from the lab report screenshots (Figure 1.4.4). Path: /var/named/fwd.bungkus.org.db
+$TTL 86400
+@       IN      SOA     tapauserver.bungkus.org.        root.bungkus.org. (
+                2001062501 ; serial
+                21600      ; refresh after 6 hours
+                3600       ; retry after 1 hour
+                604800     ; expire after 1 week
+                86400 )    ; minimum TTL of 1 day
+
+;NS records for name servers , name server information
+@       IN      NS      tapauserver.bungkus.org.
+
+
+;A records and IP address for name server
+tapauserver     IN      A       192.168.200.3
+
+;A record for IP address to hostname
+tapauclient     IN      A       192.168.200.4

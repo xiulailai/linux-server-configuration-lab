@@ -1,0 +1,55 @@
+# Reconstructed from the lab report screenshots (Figures 6.6.2 and 6.6.3, nano editor).
+# The image tag is shown as "kong-nginx:custom" in the report; the author prefix is replaced with "lab" here.
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: lab-nginx:custom
+    container_name: stack-nginx
+    ports:
+      - "8080:80"
+    networks:
+      - frontend
+    restart: unless-stopped
+    depends_on:
+      - adminer
+
+  mariadb:
+    image: mariadb:11
+    container_name: stack-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - backend
+    restart: unless-stopped
+
+  adminer:
+    image: adminer:latest
+    container_name: stack-adminer
+    ports:
+      - "8081:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+    driver: local

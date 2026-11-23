@@ -1,0 +1,42 @@
+<!-- Reconstructed from the lab report screenshots (Figures 6.9.1 and 6.9.2).
+     Title and the closing tag of the first <p> are partly off-screen in the editor; the paragraph
+     text is taken from the rendered page (Figure 6.13.2). The author name in the title is removed. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Docker Stack</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 720px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: #0d1117;
+            color: #c9d1d9;
+        }
+        h1 { color: #58a6ff; }
+        .meta { color: #8b949e; font-size: 0.9rem; margin-top: 2rem; }
+        code {
+            background: #161b22;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #ff7b72;
+        }
+        ul li { margin: 0.5rem 0; }
+    </style>
+</head>
+<body>
+    <h1>Docker Multi-Container Stack</h1>
+    <p>This nginx instance is part of a containerized service stack running behind the group VPN perimeter.</p>
+
+    <strong>Services in this stack:</strong>
+    <ul>
+        <li><code>nginx</code> - web frontend (this page) on port 8080</li>
+        <li><code>mariadb</code> - application database (internal network only)</li>
+        <li><code>adminer</code> - database admin interface on port 8081</li>
+    </ul>
+
+    <p class="meta">Built: $BUILD_DATE | Host: $BUILD_HOST</p>
+</body>
+</html>

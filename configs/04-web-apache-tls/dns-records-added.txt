@@ -1,0 +1,18 @@
+; Reconstructed from the lab report screenshots (Figure 4.9.2).
+; PARTIAL: only the end of /var/named/fwd.bungkus.org.db is reproduced (SOA, NS and
+; the A records). The two lines added for this service are web1 and web2.
+; The full zone file is in ../01-dns-bind/fwd.bungkus.org.db.
+$TTL 86400
+@       IN      SOA     tapauserver.bungkus.org.        root.bungkus.org. (
+                        2001062501 ; serial
+                        21600 ; refresh after 6 hours
+                        3600 ; retry after 1 hour
+                        604800 ; expire after 1 week
+                        86400 ) ; minimum TTL of 1 day
+
+@       IN      NS      tapauserver.bungkus.org.
+
+tapauserver     IN      A       192.168.200.4
+tapauclient     IN      A       192.168.200.3
+web1            IN      A       192.168.200.4   ; added
+web2            IN      A       192.168.200.4   ; added
