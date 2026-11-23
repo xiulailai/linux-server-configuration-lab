@@ -75,8 +75,6 @@ Group AJ. Each person wrote up and configured the services below, and everyone c
 | DHCP, MariaDB with TLS | [@Xylore9](https://github.com/Xylore9) |
 | Samba | [@WilliamChuah](https://github.com/WilliamChuah) |
 
-A sixth teammate also configured DNS and DHCP.
-
 ## License
 
 Released under the [MIT License](LICENSE). Copyright (c) 2026 automaticicemaker Contributors and APU.
